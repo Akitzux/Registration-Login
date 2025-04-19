@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { User, Mail, Lock, X } from "lucide-react";
 
-const LoginCard: React.FC = () => {
+import React, { useState } from "react";
+import { Mail, Lock, X } from "lucide-react";
+
+const LoginForm: React.FC = () => {
   const [show, setShow] = useState(true);
-  const [agree, setAgree] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ email: "", password: "" });
 
   if (!show) return null;
 
@@ -18,22 +18,11 @@ const LoginCard: React.FC = () => {
       >
         <X size={24} />
       </button>
-      <h2 className="text-2xl font-bold text-primary mb-6 mt-2 tracking-wide text-center drop-shadow-sm">Registration</h2>
+      <h2 className="text-2xl font-bold text-primary mb-6 mt-2 tracking-wide text-center drop-shadow-sm">Log In</h2>
       <form
         className="flex flex-col gap-5 w-full"
-        onSubmit={e => { e.preventDefault(); /* Here you could handle registration */ }}
+        onSubmit={e => { e.preventDefault(); /* Here you could handle login */ }}
       >
-        <div className="relative">
-          <input
-            type="text"
-            required
-            placeholder="Name"
-            value={form.name}
-            onChange={e => setForm({ ...form, name: e.target.value })}
-            className="w-full py-3 px-10 rounded-lg bg-white/20 focus:bg-white/30 transition shadow-inner border border-white/30 text-black/90 placeholder:text-black/50 focus:outline-none"
-          />
-          <User size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-primary" />
-        </div>
         <div className="relative">
           <input
             type="email"
@@ -56,33 +45,19 @@ const LoginCard: React.FC = () => {
           />
           <Lock size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-primary" />
         </div>
-        <div className="flex items-center gap-2">
-          <input
-            id="agree"
-            type="checkbox"
-            checked={agree}
-            onChange={() => setAgree(a => !a)}
-            className="accent-primary cursor-pointer"
-            required
-          />
-          <label htmlFor="agree" className="text-xs text-black/70 select-none">
-            I agree to the terms &amp; conditions
-          </label>
-        </div>
         <button
           type="submit"
-          disabled={!agree}
-          className="w-full bg-gradient-to-r from-primary to-purple-400 text-white py-2.5 rounded-xl font-semibold text-lg shadow transition-transform hover:scale-105 duration-200 disabled:opacity-60"
+          className="w-full bg-gradient-to-r from-primary to-purple-400 text-white py-2.5 rounded-xl font-semibold text-lg shadow transition-transform hover:scale-105 duration-200"
         >
-          Register
+          Log In
         </button>
         <div className="text-sm text-black/80 text-center mt-3">
-          Already have account?
-          <a className="ml-1 text-primary font-medium hover:underline cursor-pointer" href="/login">Login</a>
+          Don't have an account?
+          <a className="ml-1 text-primary font-medium hover:underline cursor-pointer" href="/">Register</a>
         </div>
       </form>
     </div>
   );
 };
 
-export default LoginCard;
+export default LoginForm;
