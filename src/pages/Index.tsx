@@ -1,8 +1,6 @@
 
 import Navbar from "../components/Navbar";
 import LoginCard from "../components/LoginCard";
-import HomeCard from "../components/HomeCard";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const Index = () => {
   return (
@@ -20,21 +18,11 @@ const Index = () => {
       />
       <Navbar />
       <main className="flex flex-1 items-center justify-center py-24">
-        <Tabs defaultValue="login" className="w-full max-w-md">
-          <TabsList className="w-full mb-8 bg-white/70 rounded-xl shadow">
-            <TabsTrigger value="login" className="w-1/2">Log In</TabsTrigger>
-            <TabsTrigger value="home" className="w-1/2">Home</TabsTrigger>
-          </TabsList>
-          <TabsContent value="login">
-            <LoginCard />
-          </TabsContent>
-          <TabsContent value="home">
-            <HomeCard />
-          </TabsContent>
-        </Tabs>
+        <LoginCard />
       </main>
     </div>
   );
 };
 
 export default Index;
+
