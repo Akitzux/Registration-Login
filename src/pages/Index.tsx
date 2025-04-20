@@ -11,8 +11,8 @@ const Index = () => {
       }}
     >
       <img
-        src="/lovable-uploads/7814240d-a31b-4c08-b011-6be663c0b9e2.png"
-        alt="Purple landscape background"
+        src="/lovable-uploads/08e82b6b-afe0-43d9-ac7f-8267cb3de151.png"
+        alt="Purple star nebula background"
         className="fixed inset-0 w-full h-full object-cover object-center -z-10 pointer-events-none opacity-95"
         draggable={false}
       />
@@ -25,4 +25,3 @@ const Index = () => {
 };
 
 export default Index;
-
