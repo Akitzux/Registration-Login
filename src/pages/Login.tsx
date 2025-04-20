@@ -11,8 +11,8 @@ const Login = () => {
       }}
     >
       <img
-        src="/lovable-uploads/7814240d-a31b-4c08-b011-6be663c0b9e2.png"
-        alt="Purple landscape background"
+        src="/lovable-uploads/e856a8a0-9efd-4ee7-807b-1ef09cbe963a.png"
+        alt="Custom background"
         className="fixed inset-0 w-full h-full object-cover object-center -z-10 pointer-events-none opacity-95"
         draggable={false}
       />
@@ -25,3 +25,4 @@ const Login = () => {
 };
 
 export default Login;
+
