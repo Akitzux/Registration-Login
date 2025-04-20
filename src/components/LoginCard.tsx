@@ -1,23 +1,14 @@
+
 import React, { useState } from "react";
-import { User, Mail, Lock, X } from "lucide-react";
+import { User, Mail, Lock } from "lucide-react";
 
 const LoginCard: React.FC = () => {
-  const [show, setShow] = useState(true);
   const [agree, setAgree] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", password: "" });
-
-  if (!show) return null;
 
   return (
     <div className="relative animate-fade-in bg-white/30 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl max-w-md w-[95vw] mx-auto p-8 flex flex-col items-center"
       style={{ minWidth: 340 }}>
-      <button
-        aria-label="Close"
-        onClick={() => setShow(false)}
-        className="absolute top-4 right-4 text-white hover:text-primary/80 transition-colors"
-      >
-        <X size={24} />
-      </button>
       <h2 className="text-2xl font-bold text-primary mb-6 mt-2 tracking-wide text-center drop-shadow-sm">Registration</h2>
       <form
         className="flex flex-col gap-5 w-full"
