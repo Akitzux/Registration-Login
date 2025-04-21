@@ -7,13 +7,13 @@ const Login = () => {
     <div
       className="min-h-screen w-full flex flex-col relative overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #7e69ab 0%, #9b87f5 60%, #e5deff 100%)',
+        background: 'linear-gradient(90deg, #FFD6E8 0%, #FFB1D2 60%, #FFDEE2 100%)',
       }}
     >
       <img
         src="/lovable-uploads/e856a8a0-9efd-4ee7-807b-1ef09cbe963a.png"
         alt="Custom background"
-        className="fixed inset-0 w-full h-full object-cover object-center -z-10 pointer-events-none opacity-95"
+        className="fixed inset-0 w-full h-full object-cover object-center -z-10 pointer-events-none opacity-90"
         draggable={false}
       />
       <Navbar />

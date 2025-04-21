@@ -1,49 +1,49 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 248 43% 15%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 340 100% 98%; /* Super light pink */
+    --foreground: 330 81% 20%; /* Dark pink text */
+    --card: 329 100% 96%; /* Very light pink card */
+    --card-foreground: 330 81% 25%; /* Dark pink text on card */
 
-    --card: 256 55% 25%;
-    --card-foreground: 222.2 84% 4.9%;
+    --popover: 329 100% 96%; /* Light pink popover */
+    --popover-foreground: 330 81% 25%; /* Dark pink text on popover */
 
-    --popover: 252 64% 18%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 330 81% 65%; /* Pink primary color */
+    --primary-foreground: 0 0% 100%; /* White on primary */
 
-    --primary: 265 68% 45%;
-    --primary-foreground: 210 40% 98%;
+    --secondary: 325 86% 90%; /* Lighter pink secondary */
+    --secondary-foreground: 330 81% 30%;
 
-    --secondary: 228 56% 90%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 330 100% 93%; /* Muted light pink */
+    --muted-foreground: 328 20% 43%;
 
-    --muted: 272 37% 25%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 325 86% 88%; /* Pink accent */
+    --accent-foreground: 330 81% 35%;
 
-    --accent: 292 41% 85%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 350 89% 60%; /* Strong magenta pink */
+    --destructive-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 238 30% 60%;
-    --input: 238 30% 60%;
-    --ring: 222.2 84% 4.9%;
+    --border: 343 66% 86%; /* Pale pink border */
+    --input: 343 66% 86%;
+    --ring: 329 78% 72%;
 
     --radius: 1.1rem;
   }
 
   body {
     font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
-    @apply bg-background text-white antialiased;
+    @apply bg-background text-foreground antialiased;
   }
 }
 
 @layer utilities {
   .glassmorphic {
-    @apply bg-white/30 backdrop-blur-xl border border-white/20 shadow-xl;
+    @apply bg-white/30 backdrop-blur-xl border border-pink-200 shadow-xl;
   }
   .animate-fade-in {
     animation: fade-in 0.4s cubic-bezier(.34,1.56,.64,1) forwards;
@@ -73,7 +73,7 @@
   height: 2px;
   left: 0;
   bottom: -2px;
-  background: linear-gradient(90deg, #E5DEFF, #9b87f5 80%);
+  background: linear-gradient(90deg, #FFDEE2, #D946EF 80%);
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.3s;
