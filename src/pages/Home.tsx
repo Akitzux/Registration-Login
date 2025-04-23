@@ -1,4 +1,3 @@
-
 import Navbar from "../components/Navbar";
 import {
   Card,
@@ -20,6 +19,7 @@ import {
   Bar,
   ResponsiveContainer,
 } from "recharts";
+import { Button } from "@/components/ui/button";
 
 const employee = {
   name: "Priya Sharma",
@@ -39,7 +39,6 @@ const attendance = {
   ],
 };
 
-// Online time in minutes for the last 5 weekdays
 const weeklyOnlineData = [
   { day: "Mon", minutes: 430 }, // 7h10m
   { day: "Tue", minutes: 480 }, // 8h
@@ -48,7 +47,6 @@ const weeklyOnlineData = [
   { day: "Fri", minutes: 500 }, // 8h20m
 ];
 
-// Helper to convert minutes to "h:mm"
 const formatMinutes = (mins: number) => {
   const h = Math.floor(mins / 60);
   const m = mins % 60;
@@ -64,6 +62,15 @@ const chartConfig = {
 };
 
 const Home = () => {
+  const handleLogin = () => {
+    console.log("Login tracked");
+    // Add logic for logging/check-in here in the future
+  };
+  const handleLogout = () => {
+    console.log("Logout tracked");
+    // Add logic for logging/check-out here in the future
+  };
+
   return (
     <div
       className="min-h-screen w-full flex flex-col relative overflow-hidden"
@@ -79,7 +86,6 @@ const Home = () => {
       />
       <Navbar />
       <main className="flex flex-1 flex-col items-center justify-center py-12">
-        {/* Employee Details Card */}
         <Card className="max-w-xl w-full mb-8 shadow-xl bg-white/75 backdrop-blur-sm border-0">
           <CardHeader className="flex flex-row items-center gap-4 pb-2">
             <span className="bg-primary/90 rounded-full p-3 text-white">
@@ -105,7 +111,6 @@ const Home = () => {
             </div>
           </CardContent>
         </Card>
-        {/* Attendance / Timings */}
         <Card className="max-w-xl w-full shadow-lg bg-white/80 border-0">
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg text-primary">
@@ -145,7 +150,6 @@ const Home = () => {
             </div>
           </CardContent>
         </Card>
-        {/* Weekly Online Time Chart */}
         <div className="max-w-xl w-full mt-8">
           <Card className="shadow-lg bg-white/85 border-0">
             <CardHeader className="pb-4">
@@ -191,10 +195,30 @@ const Home = () => {
             </CardContent>
           </Card>
         </div>
+
+        <div className="max-w-xl w-full flex justify-center gap-6 mt-6 mb-4">
+          <Button
+            variant="default"
+            className="bg-[#8B5CF6] hover:bg-[#7E69AB] text-white font-semibold px-6 shadow-md"
+            onClick={handleLogin}
+          >
+            <span className="flex items-center gap-2">
+              <LogIn className="w-5 h-5" /> Login
+            </span>
+          </Button>
+          <Button
+            variant="destructive"
+            className="bg-[#ea384c] hover:bg-red-500 text-white font-semibold px-6 shadow-md"
+            onClick={handleLogout}
+          >
+            <span className="flex items-center gap-2">
+              <LogOut className="w-5 h-5" /> Logout
+            </span>
+          </Button>
+        </div>
       </main>
     </div>
   );
 };
 
 export default Home;
-
