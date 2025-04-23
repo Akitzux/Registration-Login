@@ -1,6 +1,6 @@
 
 import React from "react";
-import { award } from "lucide-react/icons";
+import { Award } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 const EmployeeOfMonthCard = () => (
@@ -13,7 +13,7 @@ const EmployeeOfMonthCard = () => (
     />
     <div className="flex-1">
       <CardHeader className="p-0 pb-1 flex flex-row items-center gap-2">
-        <award stroke="#9b87f5" size={24} />
+        <Award stroke="#9b87f5" size={24} />
         <CardTitle className="text-lg font-semibold text-primary m-0">Employee of the Month</CardTitle>
       </CardHeader>
       <CardContent className="p-0 text-[15px] text-gray-700">

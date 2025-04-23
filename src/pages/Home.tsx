@@ -22,6 +22,7 @@ import {
 import { Button } from "@/components/ui/button";
 import EmployeeOfMonthCard from "@/components/EmployeeOfMonthCard";
 import ApplyLeaveModal from "@/components/ApplyLeaveModal";
+import AttendanceTable from "@/components/AttendanceTable";
 import { useIsMobile } from "../hooks/use-mobile";
 
 const employee = {
@@ -91,8 +92,11 @@ const Home = () => {
       />
       <Navbar />
       <main className="flex flex-1 items-center justify-center w-full px-2">
-        <div className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-7 w-full max-w-[1200px]`} style={{ minHeight: "calc(100vh - 80px)", alignItems: "center" }}>
-          <div className="flex flex-col gap-5 w-full">
+        <div
+          className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-5 w-full max-w-[1200px]"`}
+          style={{ minHeight: "100svh", alignItems: "center" }}
+        >
+          <div className="flex flex-col gap-4 w-full">
             <EmployeeOfMonthCard />
 
             <Card className="w-full shadow-xl bg-white/75 backdrop-blur-sm border-0">
@@ -121,10 +125,10 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <div className="flex gap-4 justify-between">
+            <div className="flex gap-3 justify-between">
               <Button
                 variant="default"
-                className="bg-[#8B5CF6] hover:bg-[#7E69AB] text-white font-semibold px-5 shadow-md w-full"
+                className="bg-[#8B5CF6] hover:bg-[#7E69AB] text-white font-semibold px-4 py-2 shadow-md w-full"
                 onClick={handleLogin}
               >
                 <span className="flex items-center gap-2 justify-center">
@@ -133,7 +137,7 @@ const Home = () => {
               </Button>
               <Button
                 variant="destructive"
-                className="bg-[#ea384c] hover:bg-red-500 text-white font-semibold px-5 shadow-md w-full"
+                className="bg-[#ea384c] hover:bg-red-500 text-white font-semibold px-4 py-2 shadow-md w-full"
                 onClick={handleLogout}
               >
                 <span className="flex items-center gap-2 justify-center">
@@ -144,7 +148,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-5 w-full">
+          <div className="flex flex-col gap-4 w-full overflow-x-auto">
             <Card className="w-full shadow-lg bg-white/80 border-0">
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 text-lg text-primary">
@@ -225,6 +229,7 @@ const Home = () => {
                 </div>
               </CardContent>
             </Card>
+            <AttendanceTable />
           </div>
         </div>
       </main>
