@@ -1,7 +1,25 @@
 
 import Navbar from "../components/Navbar";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { User, LogIn, LogOut, Clock } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { User, LogIn, LogOut, Clock, ChartBar } from "lucide-react";
+import {
+  ChartContainer,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+import {
+  BarChart,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Bar,
+  ResponsiveContainer,
+} from "recharts";
 
 const employee = {
   name: "Priya Sharma",
@@ -19,6 +37,30 @@ const attendance = {
     { start: "01:10 PM", end: "01:40 PM", duration: "30 min" },
     { start: "04:00 PM", end: "04:15 PM", duration: "15 min" },
   ],
+};
+
+// Online time in minutes for the last 5 weekdays
+const weeklyOnlineData = [
+  { day: "Mon", minutes: 430 }, // 7h10m
+  { day: "Tue", minutes: 480 }, // 8h
+  { day: "Wed", minutes: 410 }, // 6h50m
+  { day: "Thu", minutes: 455 }, // 7h35m
+  { day: "Fri", minutes: 500 }, // 8h20m
+];
+
+// Helper to convert minutes to "h:mm"
+const formatMinutes = (mins: number) => {
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return `${h}h ${m}m`;
+};
+
+const chartConfig = {
+  online: {
+    label: "Online Time",
+    icon: ChartBar,
+    color: "#9b87f5",
+  },
 };
 
 const Home = () => {
@@ -103,9 +145,56 @@ const Home = () => {
             </div>
           </CardContent>
         </Card>
+        {/* Weekly Online Time Chart */}
+        <div className="max-w-xl w-full mt-8">
+          <Card className="shadow-lg bg-white/85 border-0">
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center gap-2 text-lg text-primary">
+                <ChartBar className="text-[#9b87f5]" />
+                Online Time (Mon-Fri)
+              </CardTitle>
+              <CardDescription>
+                Overview of hours spent online on system this week (Mon-Fri)
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer config={chartConfig}>
+                <BarChart width={400} height={220} data={weeklyOnlineData}>
+                  <XAxis
+                    dataKey="day"
+                    tick={{ fontSize: 14, fill: "#9b87f5" }}
+                    axisLine={false}
+                  />
+                  <YAxis
+                    tick={{ fontSize: 13, fill: "#b085d6" }}
+                    axisLine={false}
+                    tickFormatter={formatMinutes}
+                    width={48}
+                  />
+                  <Tooltip
+                    content={<ChartTooltipContent labelKey="day" formatter={(value: number) => formatMinutes(value)} />}
+                  />
+                  <Bar
+                    dataKey="minutes"
+                    fill="#9b87f5"
+                    radius={[8, 8, 4, 4]}
+                    maxBarSize={36}
+                    name="Online Time"
+                  >
+                    {/* Optionally, you can add labels on bars */}
+                  </Bar>
+                </BarChart>
+              </ChartContainer>
+              <div className="text-xs text-gray-500 text-right mt-2 pr-2">
+                *Time displayed in hours and minutes for each day.
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </main>
     </div>
   );
 };
 
 export default Home;
+
