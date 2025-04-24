@@ -67,19 +67,19 @@ const attendanceData: DayAttendance[] = [
 
 const AttendanceTable = () => (
   <div className="w-full rounded-lg bg-white/90 shadow border-0 p-0 max-w-full">
-    <div className="px-5 pt-2 pb-1 flex items-center gap-2 text-sm font-semibold text-violet-700">
-      <Clock size={16} />
+    <div className="px-4 pt-2 pb-1 flex items-center gap-1.5 text-xs font-semibold text-violet-700">
+      <Clock size={14} />
       Weekly Attendance Details (Mon–Fri)
     </div>
-    <Table className="min-w-full text-sm border-0">
+    <Table className="min-w-full text-xs border-0">
       <TableHeader>
         <TableRow>
-          <TableHead className="pl-5 py-1">Date</TableHead>
+          <TableHead className="pl-4 py-1">Date</TableHead>
           <TableHead className="py-1">
-            <span className="inline-flex gap-1 items-center"><LogIn className="w-4 h-4 text-green-500" />Login</span>
+            <span className="inline-flex gap-1 items-center"><LogIn className="w-3.5 h-3.5 text-green-500" />Login</span>
           </TableHead>
           <TableHead className="py-1">
-            <span className="inline-flex gap-1 items-center"><LogOut className="w-4 h-4 text-red-500" />Logout</span>
+            <span className="inline-flex gap-1 items-center"><LogOut className="w-3.5 h-3.5 text-red-500" />Logout</span>
           </TableHead>
           <TableHead className="py-1">Break(s)</TableHead>
         </TableRow>
@@ -87,13 +87,13 @@ const AttendanceTable = () => (
       <TableBody>
         {attendanceData.map((d, idx) => (
           <TableRow key={idx} className="hover:bg-purple-50/80">
-            <TableCell className="pl-5 py-1 font-medium text-gray-700">{d.date}</TableCell>
-            <TableCell className="py-1 text-sm text-gray-800">{d.login}</TableCell>
-            <TableCell className="py-1 text-sm text-gray-800">{d.logout}</TableCell>
+            <TableCell className="pl-4 py-1 font-medium text-gray-700">{d.date}</TableCell>
+            <TableCell className="py-1 text-gray-800">{d.login}</TableCell>
+            <TableCell className="py-1 text-gray-800">{d.logout}</TableCell>
             <TableCell className="py-1 text-gray-700">
-              <ul className="space-y-0.5 text-xs">
+              <ul className="space-y-0.5 text-[10px]">
                 {d.breaks.map((b, i) => (
-                  <li key={i} className="flex gap-2 items-center">
+                  <li key={i} className="flex gap-1.5 items-center">
                     <span className="bg-pink-100 rounded px-1 text-pink-800 font-semibold">{b.duration}</span>
                     <span className="text-gray-500">
                       {b.start} - {b.end}

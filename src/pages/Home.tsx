@@ -89,96 +89,97 @@ const Home = () => {
         draggable={false}
       />
       <Navbar />
-      <main className="flex flex-1 items-center justify-center w-full px-2">
+      <main className="flex flex-1 items-center justify-center w-full p-1">
         <div
-          className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-5 w-full max-w-[1200px]"`}
-          style={{ minHeight: "100svh", alignItems: "center" }}
+          className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-3 w-full max-w-[1200px] my-2`}
         >
-          <div className="flex flex-col gap-4 w-full">
-            <EmployeeOfMonthCard />
-
-            <Card className="w-full shadow-xl bg-white/75 backdrop-blur-sm border-0">
-              <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                <span className="bg-primary/90 rounded-full p-3 text-white">
-                  <User size={32} />
-                </span>
-                <div>
-                  <CardTitle className="text-2xl">{employee.name}</CardTitle>
-                  <CardDescription className="text-base mt-1">{employee.designation} &nbsp;|&nbsp; {employee.department}</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="grid grid-cols-2 gap-y-1 gap-x-4 pt-0 pb-2">
-                <div>
-                  <span className="text-xs text-gray-600">Employee ID</span>
-                  <div className="font-medium">{employee.employeeId}</div>
-                </div>
-                <div>
-                  <span className="text-xs text-gray-600">Email</span>
-                  <div className="font-medium text-sm">{employee.email}</div>
-                </div>
-                <div>
-                  <span className="text-xs text-gray-600">Phone</span>
-                  <div className="font-medium">{employee.phone}</div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="flex gap-3 justify-between">
-              <Button
-                variant="default"
-                className="bg-[#8B5CF6] hover:bg-[#7E69AB] text-white font-semibold px-4 py-2 shadow-md w-full"
-                onClick={handleLogin}
-              >
-                <span className="flex items-center gap-2 justify-center">
-                  <LogIn className="w-5 h-5" /> Login
-                </span>
-              </Button>
-              <Button
-                variant="destructive"
-                className="bg-[#ea384c] hover:bg-red-500 text-white font-semibold px-4 py-2 shadow-md w-full"
-                onClick={handleLogout}
-              >
-                <span className="flex items-center gap-2 justify-center">
-                  <LogOut className="w-5 h-5" /> Logout
-                </span>
-              </Button>
-              <ApplyLeaveModal />
+          <div className="flex flex-col gap-3 w-full">
+            <div className="flex gap-3">
+              <Card className="w-full bg-white/75 backdrop-blur-sm shadow-xl border-0">
+                <CardHeader className="flex flex-row items-center gap-2 p-3 pb-1">
+                  <span className="bg-primary/90 rounded-full p-2 text-white">
+                    <User size={24} />
+                  </span>
+                  <div>
+                    <CardTitle className="text-xl">{employee.name}</CardTitle>
+                    <CardDescription className="text-sm">{employee.designation} &nbsp;|&nbsp; {employee.department}</CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="grid grid-cols-2 gap-y-1 gap-x-2 p-3 pt-1">
+                  <div>
+                    <span className="text-xs text-gray-600">Employee ID</span>
+                    <div className="font-medium text-sm">{employee.employeeId}</div>
+                  </div>
+                  <div>
+                    <span className="text-xs text-gray-600">Email</span>
+                    <div className="font-medium text-sm">{employee.email}</div>
+                  </div>
+                  <div>
+                    <span className="text-xs text-gray-600">Phone</span>
+                    <div className="font-medium text-sm">{employee.phone}</div>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <div className="flex flex-col gap-2">
+                <Button
+                  variant="default"
+                  className="bg-[#8B5CF6] hover:bg-[#7E69AB] text-white font-semibold px-3 py-1.5 shadow-md text-sm"
+                  onClick={handleLogin}
+                >
+                  <span className="flex items-center gap-1.5">
+                    <LogIn className="w-4 h-4" /> Login
+                  </span>
+                </Button>
+                <Button
+                  variant="destructive"
+                  className="bg-[#ea384c] hover:bg-red-500 text-white font-semibold px-3 py-1.5 shadow-md text-sm"
+                  onClick={handleLogout}
+                >
+                  <span className="flex items-center gap-1.5">
+                    <LogOut className="w-4 h-4" /> Logout
+                  </span>
+                </Button>
+                <ApplyLeaveModal />
+              </div>
             </div>
+
+            <EmployeeOfMonthCard />
           </div>
 
-          <div className="flex flex-col gap-4 w-full">
+          <div className="flex flex-col gap-3 w-full">
             <Card className="w-full shadow-lg bg-white/80 border-0">
-              <CardHeader className="pb-2">
-                <CardTitle className="flex items-center gap-2 text-lg text-primary">
-                  <Clock className="text-primary" />
+              <CardHeader className="pb-1 p-3">
+                <CardTitle className="flex items-center gap-2 text-base text-primary">
+                  <Clock className="w-4 h-4 text-primary" />
                   Attendance Today
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-center gap-2">
-                    <LogIn className="text-green-500" />
-                    <span className="text-sm font-semibold">Login:</span>
-                    <span className="text-base">{attendance.loginTime}</span>
+              <CardContent className="p-3 pt-0">
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="flex items-center gap-1.5">
+                    <LogIn className="text-green-500 w-4 h-4" />
+                    <span className="text-xs font-semibold">Login:</span>
+                    <span className="text-sm">{attendance.loginTime}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <LogOut className="text-red-400" />
-                    <span className="text-sm font-semibold">Logout:</span>
-                    <span className="text-base">{attendance.logoutTime}</span>
+                  <div className="flex items-center gap-1.5">
+                    <LogOut className="text-red-400 w-4 h-4" />
+                    <span className="text-xs font-semibold">Logout:</span>
+                    <span className="text-sm">{attendance.logoutTime}</span>
                   </div>
                 </div>
-                <div className="mt-2">
-                  <div className="font-semibold text-sm mb-1 flex items-center gap-1">
-                    <Clock size={18} className="text-primary" />
+                <div className="mt-1.5">
+                  <div className="font-semibold text-xs mb-1 flex items-center gap-1">
+                    <Clock size={14} className="text-primary" />
                     Breaks
                   </div>
                   <ul className="space-y-1">
                     {attendance.breaks.map((b, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm">
-                        <span className="bg-pink-200 rounded text-pink-900 px-1.5 py-0.5 text-xs">Break {i + 1}</span>
+                      <li key={i} className="flex items-center gap-1.5 text-xs">
+                        <span className="bg-pink-200 rounded text-pink-900 px-1 py-0.5 text-[10px]">Break {i + 1}</span>
                         <span className="text-gray-600">From <span className="font-medium">{b.start}</span></span>
                         <span className="text-gray-600">To <span className="font-medium">{b.end}</span></span>
-                        <span className="ml-auto text-xs text-gray-500">({b.duration})</span>
+                        <span className="ml-auto text-[10px] text-gray-500">({b.duration})</span>
                       </li>
                     ))}
                   </ul>
@@ -187,37 +188,39 @@ const Home = () => {
             </Card>
 
             <Card className="w-full shadow-lg bg-white/85 border-0">
-              <CardHeader className="pb-2">
-                <CardTitle className="flex items-center gap-2 text-lg text-primary">
-                  <ChartBar className="text-[#9b87f5]" />
+              <CardHeader className="pb-1 p-3">
+                <CardTitle className="flex items-center gap-2 text-base text-primary">
+                  <ChartBar className="w-4 h-4 text-[#9b87f5]" />
                   Online Time (Mon-Fri)
                 </CardTitle>
               </CardHeader>
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 p-3">
                 <ChartContainer config={chartConfig}>
-                  <BarChart width={isMobile ? 250 : 380} height={140} data={weeklyOnlineData}>
-                    <XAxis
-                      dataKey="day"
-                      tick={{ fontSize: 13, fill: "#9b87f5" }}
-                      axisLine={false}
-                    />
-                    <YAxis
-                      tick={{ fontSize: 12, fill: "#b085d6" }}
-                      axisLine={false}
-                      tickFormatter={formatMinutes}
-                      width={40}
-                    />
-                    <Tooltip
-                      content={<ChartTooltipContent labelKey="day" formatter={(value: number) => formatMinutes(value)} />}
-                    />
-                    <Bar
-                      dataKey="minutes"
-                      fill="#9b87f5"
-                      radius={[8, 8, 4, 4]}
-                      maxBarSize={isMobile ? 26 : 28}
-                      name="Online Time"
-                    />
-                  </BarChart>
+                  <ResponsiveContainer width="100%" height={120}>
+                    <BarChart data={weeklyOnlineData}>
+                      <XAxis
+                        dataKey="day"
+                        tick={{ fontSize: 11, fill: "#9b87f5" }}
+                        axisLine={false}
+                      />
+                      <YAxis
+                        tick={{ fontSize: 10, fill: "#b085d6" }}
+                        axisLine={false}
+                        tickFormatter={formatMinutes}
+                        width={35}
+                      />
+                      <Tooltip
+                        content={<ChartTooltipContent labelKey="day" formatter={(value: number) => formatMinutes(value)} />}
+                      />
+                      <Bar
+                        dataKey="minutes"
+                        fill="#9b87f5"
+                        radius={[6, 6, 3, 3]}
+                        maxBarSize={24}
+                        name="Online Time"
+                      />
+                    </BarChart>
+                  </ResponsiveContainer>
                 </ChartContainer>
               </CardContent>
             </Card>
