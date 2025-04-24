@@ -1,4 +1,3 @@
-
 import Navbar from "../components/Navbar";
 import {
   Card,
@@ -90,12 +89,12 @@ const Home = () => {
         draggable={false}
       />
       <Navbar />
-      <main className="flex flex-1 items-start justify-center w-full pt-8 pb-2 px-1">
+      <main className="flex flex-1 items-start justify-center w-full px-1 mt-16">
         <div
-          className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-2 w-full max-w-[1200px]`}
+          className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-2 w-full max-w-[1200px] pb-4`}
         >
-          <div className="flex flex-col gap-2 w-full">
-            <div className="flex gap-2">
+          <div className="flex flex-col gap-1.5 w-full">
+            <div className="flex gap-1.5">
               <Card className="w-full bg-white/75 backdrop-blur-sm shadow-xl border-0">
                 <CardHeader className="flex flex-row items-center gap-1.5 p-2 pb-0.5">
                   <span className="bg-primary/90 rounded-full p-1.5 text-white">
@@ -187,17 +186,17 @@ const Home = () => {
             </Card>
           </div>
 
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col gap-1.5 w-full">
             <Card className="w-full shadow-lg bg-white/85 border-0">
-              <CardHeader className="pb-0 p-2">
+              <CardHeader className="pb-0 p-1.5">
                 <CardTitle className="flex items-center gap-1.5 text-sm text-primary">
                   <ChartBar className="w-3.5 h-3.5 text-[#9b87f5]" />
                   Online Time (Mon-Fri)
                 </CardTitle>
               </CardHeader>
-              <CardContent className="pt-0 p-2">
+              <CardContent className="pt-0 p-1.5">
                 <ChartContainer config={chartConfig}>
-                  <ResponsiveContainer width="100%" height={90}>
+                  <ResponsiveContainer width="100%" height={80}>
                     <BarChart data={weeklyOnlineData}>
                       <XAxis
                         dataKey="day"
