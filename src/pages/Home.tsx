@@ -1,3 +1,4 @@
+
 import Navbar from "../components/Navbar";
 import {
   Card,
@@ -17,6 +18,7 @@ import {
   YAxis,
   Tooltip,
   Bar,
+  ResponsiveContainer,
 } from "recharts";
 import { Button } from "@/components/ui/button";
 import EmployeeOfMonthCard from "@/components/EmployeeOfMonthCard";
