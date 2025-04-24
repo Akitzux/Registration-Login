@@ -1,3 +1,4 @@
+
 import Navbar from "../components/Navbar";
 import {
   Card,
@@ -89,55 +90,55 @@ const Home = () => {
         draggable={false}
       />
       <Navbar />
-      <main className="flex flex-1 items-center justify-center w-full p-1">
+      <main className="flex flex-1 items-start justify-center w-full pt-16 pb-2 px-1">
         <div
-          className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-3 w-full max-w-[1200px] my-2`}
+          className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-2 w-full max-w-[1200px]`}
         >
-          <div className="flex flex-col gap-3 w-full">
-            <div className="flex gap-3">
+          <div className="flex flex-col gap-2 w-full">
+            <div className="flex gap-2">
               <Card className="w-full bg-white/75 backdrop-blur-sm shadow-xl border-0">
-                <CardHeader className="flex flex-row items-center gap-2 p-3 pb-1">
-                  <span className="bg-primary/90 rounded-full p-2 text-white">
-                    <User size={24} />
+                <CardHeader className="flex flex-row items-center gap-1.5 p-2 pb-0.5">
+                  <span className="bg-primary/90 rounded-full p-1.5 text-white">
+                    <User size={18} />
                   </span>
                   <div>
-                    <CardTitle className="text-xl">{employee.name}</CardTitle>
-                    <CardDescription className="text-sm">{employee.designation} &nbsp;|&nbsp; {employee.department}</CardDescription>
+                    <CardTitle className="text-base">{employee.name}</CardTitle>
+                    <CardDescription className="text-xs">{employee.designation} &nbsp;|&nbsp; {employee.department}</CardDescription>
                   </div>
                 </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-y-1 gap-x-2 p-3 pt-1">
+                <CardContent className="grid grid-cols-2 gap-y-0.5 gap-x-2 p-2 pt-0.5">
                   <div>
-                    <span className="text-xs text-gray-600">Employee ID</span>
-                    <div className="font-medium text-sm">{employee.employeeId}</div>
+                    <span className="text-[10px] text-gray-600">Employee ID</span>
+                    <div className="font-medium text-xs">{employee.employeeId}</div>
                   </div>
                   <div>
-                    <span className="text-xs text-gray-600">Email</span>
-                    <div className="font-medium text-sm">{employee.email}</div>
+                    <span className="text-[10px] text-gray-600">Email</span>
+                    <div className="font-medium text-xs">{employee.email}</div>
                   </div>
                   <div>
-                    <span className="text-xs text-gray-600">Phone</span>
-                    <div className="font-medium text-sm">{employee.phone}</div>
+                    <span className="text-[10px] text-gray-600">Phone</span>
+                    <div className="font-medium text-xs">{employee.phone}</div>
                   </div>
                 </CardContent>
               </Card>
               
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1 shrink-0">
                 <Button
                   variant="default"
-                  className="bg-[#8B5CF6] hover:bg-[#7E69AB] text-white font-semibold px-3 py-1.5 shadow-md text-sm"
+                  className="bg-[#8B5CF6] hover:bg-[#7E69AB] text-white font-semibold px-2 py-1 shadow-md text-xs"
                   onClick={handleLogin}
                 >
-                  <span className="flex items-center gap-1.5">
-                    <LogIn className="w-4 h-4" /> Login
+                  <span className="flex items-center gap-1">
+                    <LogIn className="w-3.5 h-3.5" /> Login
                   </span>
                 </Button>
                 <Button
                   variant="destructive"
-                  className="bg-[#ea384c] hover:bg-red-500 text-white font-semibold px-3 py-1.5 shadow-md text-sm"
+                  className="bg-[#ea384c] hover:bg-red-500 text-white font-semibold px-2 py-1 shadow-md text-xs"
                   onClick={handleLogout}
                 >
-                  <span className="flex items-center gap-1.5">
-                    <LogOut className="w-4 h-4" /> Logout
+                  <span className="flex items-center gap-1">
+                    <LogOut className="w-3.5 h-3.5" /> Logout
                   </span>
                 </Button>
                 <ApplyLeaveModal />
@@ -145,69 +146,69 @@ const Home = () => {
             </div>
 
             <EmployeeOfMonthCard />
-          </div>
-
-          <div className="flex flex-col gap-3 w-full">
+            
             <Card className="w-full shadow-lg bg-white/80 border-0">
-              <CardHeader className="pb-1 p-3">
-                <CardTitle className="flex items-center gap-2 text-base text-primary">
-                  <Clock className="w-4 h-4 text-primary" />
+              <CardHeader className="pb-0 p-2">
+                <CardTitle className="flex items-center gap-1.5 text-sm text-primary">
+                  <Clock className="w-3.5 h-3.5 text-primary" />
                   Attendance Today
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-3 pt-0">
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="flex items-center gap-1.5">
-                    <LogIn className="text-green-500 w-4 h-4" />
-                    <span className="text-xs font-semibold">Login:</span>
-                    <span className="text-sm">{attendance.loginTime}</span>
+              <CardContent className="p-2 pt-0">
+                <div className="grid grid-cols-2 gap-1">
+                  <div className="flex items-center gap-1">
+                    <LogIn className="text-green-500 w-3.5 h-3.5" />
+                    <span className="text-[10px] font-semibold">Login:</span>
+                    <span className="text-xs">{attendance.loginTime}</span>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <LogOut className="text-red-400 w-4 h-4" />
-                    <span className="text-xs font-semibold">Logout:</span>
-                    <span className="text-sm">{attendance.logoutTime}</span>
+                  <div className="flex items-center gap-1">
+                    <LogOut className="text-red-400 w-3.5 h-3.5" />
+                    <span className="text-[10px] font-semibold">Logout:</span>
+                    <span className="text-xs">{attendance.logoutTime}</span>
                   </div>
                 </div>
-                <div className="mt-1.5">
-                  <div className="font-semibold text-xs mb-1 flex items-center gap-1">
-                    <Clock size={14} className="text-primary" />
+                <div className="mt-1">
+                  <div className="font-semibold text-[10px] mb-0.5 flex items-center gap-1">
+                    <Clock size={12} className="text-primary" />
                     Breaks
                   </div>
-                  <ul className="space-y-1">
+                  <ul className="space-y-0.5">
                     {attendance.breaks.map((b, i) => (
-                      <li key={i} className="flex items-center gap-1.5 text-xs">
-                        <span className="bg-pink-200 rounded text-pink-900 px-1 py-0.5 text-[10px]">Break {i + 1}</span>
+                      <li key={i} className="flex items-center gap-1 text-[10px]">
+                        <span className="bg-pink-200 rounded text-pink-900 px-0.5 py-0 text-[8px]">Break {i + 1}</span>
                         <span className="text-gray-600">From <span className="font-medium">{b.start}</span></span>
                         <span className="text-gray-600">To <span className="font-medium">{b.end}</span></span>
-                        <span className="ml-auto text-[10px] text-gray-500">({b.duration})</span>
+                        <span className="ml-auto text-[8px] text-gray-500">({b.duration})</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </CardContent>
             </Card>
+          </div>
 
+          <div className="flex flex-col gap-2 w-full">
             <Card className="w-full shadow-lg bg-white/85 border-0">
-              <CardHeader className="pb-1 p-3">
-                <CardTitle className="flex items-center gap-2 text-base text-primary">
-                  <ChartBar className="w-4 h-4 text-[#9b87f5]" />
+              <CardHeader className="pb-0 p-2">
+                <CardTitle className="flex items-center gap-1.5 text-sm text-primary">
+                  <ChartBar className="w-3.5 h-3.5 text-[#9b87f5]" />
                   Online Time (Mon-Fri)
                 </CardTitle>
               </CardHeader>
-              <CardContent className="pt-0 p-3">
+              <CardContent className="pt-0 p-2">
                 <ChartContainer config={chartConfig}>
-                  <ResponsiveContainer width="100%" height={120}>
+                  <ResponsiveContainer width="100%" height={90}>
                     <BarChart data={weeklyOnlineData}>
                       <XAxis
                         dataKey="day"
-                        tick={{ fontSize: 11, fill: "#9b87f5" }}
+                        tick={{ fontSize: 9, fill: "#9b87f5" }}
                         axisLine={false}
                       />
                       <YAxis
-                        tick={{ fontSize: 10, fill: "#b085d6" }}
+                        tick={{ fontSize: 8, fill: "#b085d6" }}
                         axisLine={false}
                         tickFormatter={formatMinutes}
-                        width={35}
+                        width={30}
                       />
                       <Tooltip
                         content={<ChartTooltipContent labelKey="day" formatter={(value: number) => formatMinutes(value)} />}
@@ -215,8 +216,8 @@ const Home = () => {
                       <Bar
                         dataKey="minutes"
                         fill="#9b87f5"
-                        radius={[6, 6, 3, 3]}
-                        maxBarSize={24}
+                        radius={[4, 4, 2, 2]}
+                        maxBarSize={18}
                         name="Online Time"
                       />
                     </BarChart>
