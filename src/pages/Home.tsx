@@ -1,4 +1,3 @@
-
 import Navbar from "../components/Navbar";
 import {
   Card,
@@ -18,7 +17,6 @@ import {
   YAxis,
   Tooltip,
   Bar,
-  ResponsiveContainer,
 } from "recharts";
 import { Button } from "@/components/ui/button";
 import EmployeeOfMonthCard from "@/components/EmployeeOfMonthCard";
@@ -90,7 +88,7 @@ const Home = () => {
         draggable={false}
       />
       <Navbar />
-      <main className="flex flex-1 items-start justify-center w-full pt-16 pb-2 px-1">
+      <main className="flex flex-1 items-start justify-center w-full pt-8 pb-2 px-1">
         <div
           className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-2 w-full max-w-[1200px]`}
         >
