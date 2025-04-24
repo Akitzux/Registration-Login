@@ -13,13 +13,13 @@ const EmployeeOfMonthCard = () => (
     />
     <div className="flex-1">
       <CardHeader className="p-0 pb-1 flex flex-row items-center gap-2">
-        <Award stroke="#9b87f5" size={24} />
+        <Award stroke="#9b87f5" size={20} />
         <CardTitle className="text-lg font-semibold text-primary m-0">Employee of the Month</CardTitle>
       </CardHeader>
-      <CardContent className="p-0 text-[15px] text-gray-700">
+      <CardContent className="p-0 text-sm text-gray-700">
         <div className="font-bold">Akash Verma</div>
-        <div className="text-xs text-gray-500 mt-0.5">Sales Manager</div>
-        <div className="text-xs mt-1">For outstanding performance in March 🎉</div>
+        <div className="text-xs text-gray-500">Sales Manager</div>
+        <div className="text-xs mt-0.5">For outstanding performance in March 🎉</div>
       </CardContent>
     </div>
   </Card>

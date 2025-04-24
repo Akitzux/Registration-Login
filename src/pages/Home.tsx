@@ -70,11 +70,9 @@ const Home = () => {
 
   const handleLogin = () => {
     console.log("Login tracked");
-    // Add logic for logging/check-in here in the future
   };
   const handleLogout = () => {
     console.log("Logout tracked");
-    // Add logic for logging/check-out here in the future
   };
 
   return (
@@ -116,7 +114,7 @@ const Home = () => {
                 </div>
                 <div>
                   <span className="text-xs text-gray-600">Email</span>
-                  <div className="font-medium">{employee.email}</div>
+                  <div className="font-medium text-sm">{employee.email}</div>
                 </div>
                 <div>
                   <span className="text-xs text-gray-600">Phone</span>
@@ -148,17 +146,16 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4 w-full overflow-x-auto">
+          <div className="flex flex-col gap-4 w-full">
             <Card className="w-full shadow-lg bg-white/80 border-0">
-              <CardHeader className="pb-4">
+              <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-lg text-primary">
                   <Clock className="text-primary" />
                   Attendance Today
                 </CardTitle>
-                <CardDescription>Track login, logout, and break timings for today</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-center gap-2">
                     <LogIn className="text-green-500" />
                     <span className="text-sm font-semibold">Login:</span>
@@ -170,15 +167,15 @@ const Home = () => {
                     <span className="text-base">{attendance.logoutTime}</span>
                   </div>
                 </div>
-                <div className="mt-4">
-                  <div className="font-semibold text-sm mb-2 flex items-center gap-1">
+                <div className="mt-2">
+                  <div className="font-semibold text-sm mb-1 flex items-center gap-1">
                     <Clock size={18} className="text-primary" />
                     Breaks
                   </div>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1">
                     {attendance.breaks.map((b, i) => (
-                      <li key={i} className="flex items-center gap-4 text-base">
-                        <span className="bg-pink-200 rounded text-pink-900 px-2 py-0.5 text-xs">Break {i + 1}</span>
+                      <li key={i} className="flex items-center gap-2 text-sm">
+                        <span className="bg-pink-200 rounded text-pink-900 px-1.5 py-0.5 text-xs">Break {i + 1}</span>
                         <span className="text-gray-600">From <span className="font-medium">{b.start}</span></span>
                         <span className="text-gray-600">To <span className="font-medium">{b.end}</span></span>
                         <span className="ml-auto text-xs text-gray-500">({b.duration})</span>
@@ -188,19 +185,17 @@ const Home = () => {
                 </div>
               </CardContent>
             </Card>
+
             <Card className="w-full shadow-lg bg-white/85 border-0">
-              <CardHeader className="pb-4">
+              <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-lg text-primary">
                   <ChartBar className="text-[#9b87f5]" />
                   Online Time (Mon-Fri)
                 </CardTitle>
-                <CardDescription>
-                  Overview of hours spent online on system this week (Mon-Fri)
-                </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="pt-0">
                 <ChartContainer config={chartConfig}>
-                  <BarChart width={isMobile ? 250 : 380} height={isMobile ? 150 : 168} data={weeklyOnlineData}>
+                  <BarChart width={isMobile ? 250 : 380} height={140} data={weeklyOnlineData}>
                     <XAxis
                       dataKey="day"
                       tick={{ fontSize: 13, fill: "#9b87f5" }}
@@ -224,9 +219,6 @@ const Home = () => {
                     />
                   </BarChart>
                 </ChartContainer>
-                <div className="text-xs text-gray-500 text-right mt-2 pr-2">
-                  *Time displayed in hours and minutes for each day.
-                </div>
               </CardContent>
             </Card>
             <AttendanceTable />
