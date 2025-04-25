@@ -24,6 +24,7 @@ import EmployeeOfMonthCard from "@/components/EmployeeOfMonthCard";
 import ApplyLeaveModal from "@/components/ApplyLeaveModal";
 import AttendanceTable from "@/components/AttendanceTable";
 import { useIsMobile } from "../hooks/use-mobile";
+import ProjectsCard from "../components/ProjectsCard";
 
 const employee = {
   name: "Priya Sharma",
@@ -54,7 +55,7 @@ const weeklyOnlineData = [
 const formatMinutes = (mins: number) => {
   const h = Math.floor(mins / 60);
   const m = mins % 60;
-  return `${h}h ${m}m`;
+  return `${h}h ${m}`;
 };
 
 const chartConfig = {
@@ -184,8 +185,9 @@ const Home = () => {
                 </div>
               </CardContent>
             </Card>
+            <ProjectsCard />
           </div>
-
+          
           <div className="flex flex-col gap-1.5 w-full">
             <Card className="w-full shadow-lg bg-white/85 border-0">
               <CardHeader className="pb-0 p-1.5">
