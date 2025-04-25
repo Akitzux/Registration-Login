@@ -1,7 +1,7 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { FileText, Check, CircleX, CircleHalf } from "lucide-react";
+import { FileText, Check, CircleX, CircleHelp } from "lucide-react";
 
 interface Project {
   name: string;
@@ -21,7 +21,7 @@ const getStatusIcon = (status: Project["status"]) => {
     case "completed":
       return <Check className="w-4 h-4 text-green-500" />;
     case "in-progress":
-      return <CircleHalf className="w-4 h-4 text-yellow-500" />;
+      return <CircleHelp className="w-4 h-4 text-yellow-500" />; // Changed from CircleHalf to CircleHelp
     case "not-started":
       return <CircleX className="w-4 h-4 text-red-500" />;
   }
