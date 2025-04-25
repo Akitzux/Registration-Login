@@ -89,9 +89,9 @@ const Home = () => {
         draggable={false}
       />
       <Navbar />
-      <main className="flex flex-1 items-start justify-center w-full px-1 mt-16">
+      <main className="flex flex-1 items-start justify-center w-full px-1 mt-20">
         <div
-          className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-2 w-full max-w-[1200px] pb-4`}
+          className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-3 w-full max-w-[1200px] pb-6`}
         >
           <div className="flex flex-col gap-1.5 w-full">
             <div className="flex gap-1.5">
