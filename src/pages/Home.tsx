@@ -95,54 +95,52 @@ const Home = () => {
           className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-3 w-full max-w-[1200px] pb-6`}
         >
           <div className="flex flex-col gap-1.5 w-full">
-            <div className="flex gap-1.5">
-              <Card className="w-full bg-white/75 backdrop-blur-sm shadow-xl border-0">
-                <CardHeader className="flex flex-row items-center gap-1.5 p-2 pb-0.5">
-                  <span className="bg-primary/90 rounded-full p-1.5 text-white">
-                    <User size={18} />
-                  </span>
-                  <div>
-                    <CardTitle className="text-base">{employee.name}</CardTitle>
-                    <CardDescription className="text-xs">{employee.designation} &nbsp;|&nbsp; {employee.department}</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-y-0.5 gap-x-2 p-2 pt-0.5">
-                  <div>
-                    <span className="text-[10px] text-gray-600">Employee ID</span>
-                    <div className="font-medium text-xs">{employee.employeeId}</div>
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-gray-600">Email</span>
-                    <div className="font-medium text-xs">{employee.email}</div>
-                  </div>
-                  <div>
-                    <span className="text-[10px] text-gray-600">Phone</span>
-                    <div className="font-medium text-xs">{employee.phone}</div>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <div className="flex flex-col gap-1 shrink-0">
-                <Button
-                  variant="default"
-                  className="bg-[#8B5CF6] hover:bg-[#7E69AB] text-white font-semibold px-2 py-1 shadow-md text-xs"
-                  onClick={handleLogin}
-                >
-                  <span className="flex items-center gap-1">
-                    <LogIn className="w-3.5 h-3.5" /> Login
-                  </span>
-                </Button>
-                <Button
-                  variant="destructive"
-                  className="bg-[#ea384c] hover:bg-red-500 text-white font-semibold px-2 py-1 shadow-md text-xs"
-                  onClick={handleLogout}
-                >
-                  <span className="flex items-center gap-1">
-                    <LogOut className="w-3.5 h-3.5" /> Logout
-                  </span>
-                </Button>
-                <ApplyLeaveModal />
-              </div>
+            <Card className="w-full bg-white/75 backdrop-blur-sm shadow-xl border-0">
+              <CardHeader className="flex flex-row items-center gap-1.5 p-2 pb-0.5">
+                <span className="bg-primary/90 rounded-full p-1.5 text-white">
+                  <User size={18} />
+                </span>
+                <div>
+                  <CardTitle className="text-base">{employee.name}</CardTitle>
+                  <CardDescription className="text-xs">{employee.designation} &nbsp;|&nbsp; {employee.department}</CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent className="grid grid-cols-2 gap-y-0.5 gap-x-2 p-2 pt-0.5">
+                <div>
+                  <span className="text-[10px] text-gray-600">Employee ID</span>
+                  <div className="font-medium text-xs">{employee.employeeId}</div>
+                </div>
+                <div>
+                  <span className="text-[10px] text-gray-600">Email</span>
+                  <div className="font-medium text-xs">{employee.email}</div>
+                </div>
+                <div>
+                  <span className="text-[10px] text-gray-600">Phone</span>
+                  <div className="font-medium text-xs">{employee.phone}</div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <div className="flex flex-col gap-1 shrink-0">
+              <Button
+                variant="default"
+                className="bg-[#8B5CF6] hover:bg-[#7E69AB] text-white font-semibold px-2 py-1 shadow-md text-xs"
+                onClick={handleLogin}
+              >
+                <span className="flex items-center gap-1">
+                  <LogIn className="w-3.5 h-3.5" /> Login
+                </span>
+              </Button>
+              <Button
+                variant="destructive"
+                className="bg-[#ea384c] hover:bg-red-500 text-white font-semibold px-2 py-1 shadow-md text-xs"
+                onClick={handleLogout}
+              >
+                <span className="flex items-center gap-1">
+                  <LogOut className="w-3.5 h-3.5" /> Logout
+                </span>
+              </Button>
+              <ApplyLeaveModal />
             </div>
 
             <EmployeeOfMonthCard />
